@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab Skill"
+  short_description: "GitLab REST workflows without MCP"
+  default_prompt: "Use $gitlab-skill to inspect a GitLab merge request without MCP."
+policy:
+  allow_implicit_invocation: true
