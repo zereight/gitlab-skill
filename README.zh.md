@@ -2,8 +2,31 @@
 
 翻译: [English](README.md) | [한국어](README.ko.md)
 
-这个文件夹包含一个 Codex skill。它可以在不启动 GitLab MCP 服务器的情况下读取 GitLab 信息，并发布评论。
+这个文件夹包含一个 agent skill。它可以在不启动 GitLab MCP 服务器的情况下读取 GitLab 信息，并发布评论。
 非开发人员也可以通过复制并运行下面的 Terminal 命令来使用。
+
+## 使用 skills 安装
+
+为所有支持的 agent 全局安装此 skill：
+
+```shell
+npx -y skills add <repository-url> -s gitlab-skill --all -g
+```
+
+如果使用本地 checkout：
+
+```shell
+cd /Users/tao.exe/Documents/gitlab-skill
+npx -y skills add . -s gitlab-skill --all -g
+```
+
+如果遇到 npm cache 权限错误，请使用临时 cache：
+
+```shell
+NPM_CONFIG_CACHE=/private/tmp/skills-cache npx -y skills add . -s gitlab-skill --all -g
+```
+
+如果只想安装到某一个 agent，请把 `--all` 替换为 `-a <agent-name>`。
 
 ## 1. 你需要准备什么
 
@@ -190,9 +213,9 @@ node scripts/gitlab_api.mjs jobs "group/project" 123456
 node scripts/gitlab_api.mjs job-log "group/project" 987654
 ```
 
-## 8. 让 Codex 使用它
+## 8. 让 AI agent 使用它
 
-可以这样告诉 Codex：
+可以这样告诉你的 AI agent：
 
 ```text
 Use $gitlab-skill to review MR 12 in group/project. Do not use MCP.

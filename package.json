@@ -1,0 +1,22 @@
+{
+  "name": "gitlab-skill",
+  "version": "0.1.0",
+  "description": "Agent skill for GitLab REST workflows without MCP",
+  "private": true,
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-skill",
+    "gitlab",
+    "gitlab-api",
+    "merge-requests",
+    "issues"
+  ],
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "README.ko.md",
+    "README.zh.md",
+    "agents",
+    "scripts"
+  ]
+}

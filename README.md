@@ -2,8 +2,31 @@
 
 Translations: [한국어](README.ko.md) | [中文](README.zh.md)
 
-This folder contains a Codex skill that lets you read GitLab information and post comments without running a GitLab MCP server.
+This folder contains an agent skill that lets you read GitLab information and post comments without running a GitLab MCP server.
 Non-developers can use it by copying and running the commands below in Terminal.
+
+## Install with skills
+
+Install this skill globally for all supported agents:
+
+```shell
+npx -y skills add <repository-url> -s gitlab-skill --all -g
+```
+
+For a local checkout:
+
+```shell
+cd /Users/tao.exe/Documents/gitlab-skill
+npx -y skills add . -s gitlab-skill --all -g
+```
+
+If npm cache permission errors appear, use a temporary cache:
+
+```shell
+NPM_CONFIG_CACHE=/private/tmp/skills-cache npx -y skills add . -s gitlab-skill --all -g
+```
+
+To install only for one agent, replace `--all` with `-a <agent-name>`.
 
 ## 1. What You Need
 
@@ -190,9 +213,9 @@ View a job log:
 node scripts/gitlab_api.mjs job-log "group/project" 987654
 ```
 
-## 8. Ask Codex to Use It
+## 8. Ask an AI Agent to Use It
 
-You can ask Codex like this:
+You can ask your AI agent like this:
 
 ```text
 Use $gitlab-skill to review MR 12 in group/project. Do not use MCP.

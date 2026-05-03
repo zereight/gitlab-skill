@@ -2,8 +2,31 @@
 
 번역: [English](README.md) | [中文](README.zh.md)
 
-이 폴더는 GitLab MCP 서버를 켜지 않고도 GitLab 정보를 조회하거나 댓글을 남길 수 있게 만든 Codex skill입니다.
+이 폴더는 GitLab MCP 서버를 켜지 않고도 GitLab 정보를 조회하거나 댓글을 남길 수 있게 만든 agent skill입니다.
 비개발자도 터미널에서 아래 명령을 복사해 실행하는 방식으로 사용할 수 있습니다.
+
+## skills로 설치하기
+
+지원되는 모든 agent에 전역 skill로 설치합니다.
+
+```shell
+npx -y skills add <repository-url> -s gitlab-skill --all -g
+```
+
+로컬 폴더에서 설치할 때:
+
+```shell
+cd /Users/tao.exe/Documents/gitlab-skill
+npx -y skills add . -s gitlab-skill --all -g
+```
+
+npm cache 권한 오류가 나면 임시 cache를 사용합니다.
+
+```shell
+NPM_CONFIG_CACHE=/private/tmp/skills-cache npx -y skills add . -s gitlab-skill --all -g
+```
+
+특정 agent에만 설치하려면 `--all` 대신 `-a <agent-name>`을 사용합니다.
 
 ## 1. 준비물
 
@@ -190,9 +213,9 @@ Job 로그 보기:
 node scripts/gitlab_api.mjs job-log "group/project" 987654
 ```
 
-## 8. Codex에게 시킬 때
+## 8. AI agent에게 시킬 때
 
-Codex에게는 이렇게 말하면 됩니다.
+사용 중인 AI agent에게는 이렇게 말하면 됩니다.
 
 ```text
 $gitlab-skill 써서 group/project MR 12 리뷰해줘. MCP는 쓰지 마.
